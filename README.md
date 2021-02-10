@@ -34,7 +34,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :status
+- has_one :status
 
 ## statuses テーブル
 
@@ -47,4 +47,4 @@
 ### Association
 
 - belongs_to :user
-- has_one :diary
+- belongs_to :diary
