@@ -8,7 +8,7 @@ class CreateDiaries < ActiveRecord::Migration[6.0]
       t.integer :study,           null: false
       t.integer :margin,          null: false
       t.integer :tired,           null: false
-      t.integer :dream,           null: false
+      t.integer :refresh,           null: false
       t.integer :output,          null: false
       t.integer :today_goal,      null: false
       t.datetime :diary_time

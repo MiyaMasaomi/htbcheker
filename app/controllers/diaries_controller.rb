@@ -13,8 +13,12 @@ class DiariesController < ApplicationController
   end
 
   def create
-    Diary.create(diary_parameter)
-    redirect_to diaries_path
+    @diaries = Diary.new(diary_parameter)
+    if @diaries.save
+    redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destrory
@@ -39,7 +43,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_parameter
-    params.require(:diary).permit(:sentence, :sleep, :meal, :motion, :study, :margin, :tired, :dream, :output, :today_goal, :diary_time)
+    params.require(:diary).permit(:sentence, :sleep, :meal, :motion, :study, :margin, :tired, :refresh, :output, :today_goal, :diary_time)
   end
 
 end

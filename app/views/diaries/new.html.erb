@@ -1,57 +1,235 @@
-<%= form_with(model: @diary, local: true) do |form| %>
+<%= form_with model: @diary, local: true do |form| %>
 
-  <div class="sentence">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
-  </div>
-
-  <div class="sleep">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
-  </div>
-
-  <div class="meal">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
-  </div>
-
-  <div class="motion">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
-  </div>
-
-  <div class="study">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
-  </div>
-    
-  <div class="margin">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
-  </div>
-
-  <div class="tired">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
-  </div>
-
-  <div class="dream">
+  <div class="time">
     <%= form.label :diary_time %>
     <%= form.datetime_select :diary_time %>
   </div>
 
+  <div class="sentence">
+    <%= form.label :日記 %>
+    <%= form.text_field :sentence %>
+  </div>
+
+  <div class="sleep">
+    <span class="select">睡眠</span><br>
+    <div class="radio">
+      <%= form.radio_button :sleep, :全く眠れなかった, ckecked: "checked" %>
+      <%= form.label :全く眠れなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :sleep, :少し眠れなかった %>
+      <%= form.label :少し眠れなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :sleep, :眠れた %>
+      <%= form.label :眠れた, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :sleep, :少し眠れた %>
+      <%= form.label :少し眠れた, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :sleep, :よく眠れた %>
+      <%= form.label :よく眠れた, class: "select_label" %>
+    </div>
+  </div>
+
+  <div class="meal">
+    <span class="select">食事</span><br>
+    <div class="radio">
+      <%= form.radio_button :meal, :食欲がなかった, ckecked: "checked" %>
+      <%= form.label :食欲がなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :meal, :野菜は摂れなかった %>
+      <%= form.label :野菜は摂れなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :meal, :少し野菜が摂れた %>
+      <%= form.label :少し野菜が摂れた, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :meal, :意識して野菜を摂れた %>
+      <%= form.label :意識して野菜を摂れた, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :meal, :バランス良く摂れた %>
+      <%= form.label :バランス良く摂れた, class: "select_label" %>
+    </div>
+  </div>
+
+  <div class="motion">
+    <span class="select">運動</span><br>
+    <div class="radio">
+      <%= form.radio_button :motion, :運動しなかった, ckecked: "checked" %>
+      <%= form.label :運動しなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :motion, :少し運動した %>
+      <%= form.label :少し運動した, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :motion, :３０分以上は運動した %>
+      <%= form.label :３０分以上は運動した, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :motion, :１時間は運動した %>
+      <%= form.label :１時間は運動した, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :motion, :２時間は運動した %>
+      <%= form.label :２時間は運動した, class: "select_label" %>
+    </div>
+  </div>
+
+  <div class="study">
+    <span class="select">勉強</span><br>
+    <div class="radio">
+      <%= form.radio_button :study, :勉強できなかった, ckecked: "checked" %>
+      <%= form.label :勉強できなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :study, :３０分勉強した %>
+      <%= form.label :３０分勉強した, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :study, :１時間勉強した %>
+      <%= form.label :１時間勉強した, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :study, :２時間勉強した %>
+      <%= form.label :２時間勉強した, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :study, :３時間以上勉強した %>
+      <%= form.label :３時間以上勉強した, class: "select_label" %>
+    </div>
+  </div>
+    
   <div class="output">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
+    <span class="select">アウトプット</span><br>
+    <div class="radio">
+      <%= form.radio_button :output, :何もアウトプットできなかった, ckecked: "checked" %>
+      <%= form.label :何もアウトプットできなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :output, :ツイッターなどでアウトプットした %>
+      <%= form.label :ツイッターなどでアウトプットした, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :output, :誰かと専門的な話をした %>
+      <%= form.label :誰かと専門的な話をした, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :output, :知り合いに勉強を教えた %>
+      <%= form.label :知り合いに勉強を教えた, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :output, :他人に勉強を教えた %>
+      <%= form.label :他人に勉強を教えた, class: "select_label" %>
+    </div>
   </div>
 
   <div class="today_goal">
-    <%= form.label :hoge %>
-    <%= form.text_field :hoge %>
+    <span class="select">今日・今週・今月の目標</span><br>
+    <div class="radio">
+      <%= form.radio_button :today_goal, :目標は達成されなかった, ckecked: "checked" %>
+      <%= form.label :目標は達成されなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :today_goal, :目標を達成できそうだった %>
+      <%= form.label :目標を達成できそうだった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :today_goal, :今日の目標を達成した %>
+      <%= form.label :今日の目標を達成した, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :today_goal, :今週の目標も達成した %>
+      <%= form.label :今週の目標も達成した, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :today_goal, :今月の目標も達成した %>
+      <%= form.label :今月の目標も達成した, class: "select_label" %>
+    </div>
   </div>
 
+  <div class="margin">
+    <span class="select">心の余裕</span><br>
+    <div class="radio">
+      <%= form.radio_button :margin, :心の余裕がない, ckecked: "checked" %>
+      <%= form.label :心の余裕がない, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :margin, :少し心の余裕がない %>
+      <%= form.label :少し心の余裕がない, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :margin, :少し心の余裕がある %>
+      <%= form.label :少し心の余裕がある, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :margin, :心の余裕がある %>
+      <%= form.label :心の余裕がある, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :margin, :だいぶ心の余裕がある %>
+      <%= form.label :だいぶ心の余裕がある, class: "select_label" %>
+    </div>
+  </div>
+
+  <div class="tired">
+    <span class="select">疲労感</span><br>
+    <div class="radio">
+      <%= form.radio_button :tired, :まったく動けない, ckecked: "checked" %>
+      <%= form.label :まったく動けない, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :tired, :疲れて動けない %>
+      <%= form.label :疲れて動けない, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :tired, :少し疲れた %>
+      <%= form.label :少し疲れた, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :tired, :疲れを感じなかった %>
+      <%= form.label :疲れを感じなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :tired, :むしろ元気になった %>
+      <%= form.label :むしろ元気になった, class: "select_label" %>
+    </div>
+  </div>
+
+  <div class="refresh">
+    <span class="select">リフレッシュ</span><br>
+    <div class="radio">
+      <%= form.radio_button :refresh, :リフレッシュする時間がなかった, ckecked: "checked" %>
+      <%= form.label :リフレッシュする時間がなかった, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :refresh, :少しだけリフレッシュした %>
+      <%= form.label :少しだけリフレッシュした, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :refresh, :リフレッシュした %>
+      <%= form.label :リフレッシュした, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :refresh, :半日リフレッシュできた %>
+      <%= form.label :半日リフレッシュできた, class: "select_label" %>
+    </div>
+    <div class="radio">
+      <%= form.radio_button :refresh, :１日リフレッシュできた %>
+      <%= form.label :１日リフレッシュできた, class: "select_label" %>
+    </div>
+  </div>
+
+
   <div class="submit">
-    <%= form.submit %>
+    <%= form.submit "日記を保存する" ,class:"sell-btn" %>
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
   </div>
 
 <% end %>
