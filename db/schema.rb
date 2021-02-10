@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_053151) do
+ActiveRecord::Schema.define(version: 2021_02_10_063648) do
+
+  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "sentence", default: "", null: false
+    t.integer "sleep", null: false
+    t.integer "meal", null: false
+    t.integer "motion", null: false
+    t.integer "study", null: false
+    t.integer "margin", null: false
+    t.integer "tired", null: false
+    t.integer "dream", null: false
+    t.integer "output", null: false
+    t.integer "today_goal", null: false
+    t.datetime "diary_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", default: "", null: false

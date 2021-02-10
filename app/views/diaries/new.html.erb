@@ -1,0 +1,57 @@
+<%= form_with(model: @diary, local: true) do |form| %>
+
+  <div class="sentence">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+
+  <div class="sleep">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+
+  <div class="meal">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+
+  <div class="motion">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+
+  <div class="study">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+    
+  <div class="margin">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+
+  <div class="tired">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+
+  <div class="dream">
+    <%= form.label :diary_time %>
+    <%= form.datetime_select :diary_time %>
+  </div>
+
+  <div class="output">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+
+  <div class="today_goal">
+    <%= form.label :hoge %>
+    <%= form.text_field :hoge %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>

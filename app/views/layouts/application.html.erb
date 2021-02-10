@@ -10,6 +10,19 @@
   </head>
 
   <body>
+  <header class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/">>ハテボチェッカー</a></h1>
+        <div class="user_nav grid-6">
+          <a class="post" href="/diaries/new">日記を投稿する</a>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <p>
+        Copyright ハテボチェッカー 2021.
+      </p>
+    </footer>
   </body>
 </html>
