@@ -43,8 +43,6 @@
 | heart     | integer    | null: false                    |
 | technique | integer    | null: false                    |
 | body      | integer    | null: false                    |
-| user      | references | null: false, foreign_key: true |
-| diary     | references | null: false, foreign_key: true |
 
 ### Association
 
