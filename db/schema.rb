@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 2021_02_10_063648) do
     t.integer "meal", null: false
     t.integer "motion", null: false
     t.integer "study", null: false
+    t.integer "output", null: false
+    t.integer "today_goal", null: false
     t.integer "margin", null: false
     t.integer "tired", null: false
     t.integer "refresh", null: false
-    t.integer "output", null: false
-    t.integer "today_goal", null: false
     t.datetime "diary_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

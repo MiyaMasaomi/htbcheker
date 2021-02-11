@@ -5,16 +5,16 @@ class DiariesController < ApplicationController
   end
 
   def new
-    @diaries = Diary.new
+    @diary = Diary.new
   end
 
   def show
-    @diaries = Diary.find(params[:id])
+    @diary = Diary.find(params[:id])
   end
 
   def create
-    @diaries = Diary.new(diary_parameter)
-    if @diaries.save
+    @diary = Diary.new(diary_params)
+    if @diary.save
     redirect_to root_path
     else
       render :new
@@ -22,18 +22,18 @@ class DiariesController < ApplicationController
   end
 
   def destrory
-    @diaries = Diary.find(params[:id])
+    @diary = Diary.find(params[:id])
     @diaries.destrory
     redirect_to diaries_path, notice:"削除しました"
   end
 
   def edit
-    @diaries = Diary.find(params[:id])
+    @diary = Diary.find(params[:id])
   end
 
   def update
-    @diaries = Diary.find(params[:id])
-    if @diaries.update(diary_parameter)
+    @diary = Diary.find(params[:id])
+    if @diaries.update(diary_params)
       redirect_to diaries_path, notice: "編集しました"
     else
       render 'edit'
@@ -42,8 +42,8 @@ class DiariesController < ApplicationController
 
   private
 
-  def diary_parameter
-    params.require(:diary).permit(:sentence, :sleep, :meal, :motion, :study, :margin, :tired, :refresh, :output, :today_goal, :diary_time)
+  def diary_params
+    params.require(:diary).permit(:sentence, :sleep, :meal, :motion, :study, :output, :today_goal, :margin, :tired, :refresh, :diary_time)
   end
 
 end
