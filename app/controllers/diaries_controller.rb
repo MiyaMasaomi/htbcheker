@@ -43,7 +43,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:sentence, :sleep, :meal, :motion, :study, :output, :today_goal, :margin, :tired, :refresh, :diary_time)
+    params.require(:diary).permit(:sentence, :sleep, :meal, :motion, :study, :output, :today_goal, :margin, :tired, :refresh, :start_time).merge(user_id: current_user.id)
   end
 
 end

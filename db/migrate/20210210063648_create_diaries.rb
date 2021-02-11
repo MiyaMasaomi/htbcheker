@@ -2,17 +2,17 @@ class CreateDiaries < ActiveRecord::Migration[6.0]
   def change
     create_table :diaries do |t|
       t.string :sentence,         null: false, default: ""
-      t.integer :sleep,           null: false
-      t.integer :meal,            null: false
-      t.integer :motion,          null: false
-      t.integer :study,           null: false
-      t.integer :output,          null: false
-      t.integer :today_goal,      null: false
-      t.integer :margin,          null: false
-      t.integer :tired,           null: false
-      t.integer :refresh,         null: false
-      t.datetime :diary_time
-      
+      t.string :sleep,           null: false
+      t.string :meal,            null: false
+      t.string :motion,          null: false
+      t.string :study,           null: false
+      t.string :output,          null: false
+      t.string :today_goal,      null: false
+      t.string :margin,          null: false
+      t.string :tired,           null: false
+      t.string :refresh,         null: false
+      t.datetime :start_time
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

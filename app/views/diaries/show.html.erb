@@ -2,18 +2,18 @@
 
 <p>
   <strong>タイトル</strong>
-  <%= @diary.title %>
+  <%= @diaries.sentence %>
 </p>
 
 <p>
   <strong>時間</strong>
-  <%= @diary.diary_time.strftime("%Y-%m-%d %H:%M") %>
+  <%= @diaries.start_time.strftime("%Y-%m-%d %H:%M") %>
 </p>
 
 <p>
   <strong>内容</strong>
-  <%= @diary.sentence %>
+  <%= @diaries.sentence %>
 </p>
 
-<%= link_to 'Edit', edit_diary_path(@diary) %> |
+<%= link_to 'Edit', edit_diary_path(@diaries) %> |
 <%= link_to 'Back', diaries_path %>

@@ -14,11 +14,11 @@
   <tbody>
     <% @diaries.each do |diary| %>
       <tr>
-        <td><%= diary.title %></td>
+        <td><%= diary.sentence %></td>
         <td><%= diary.start_time.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= link_to 'Show', diary %></td>
-        <td><%= link_to 'Edit', edit_diaries_path(diary.id) %></td>
-        <td><%= link_to 'Destroy',diaries_path(diary.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_diary_path(diary.id) %></td>
+        <td><%= link_to 'Destroy',diary_path(diary.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,7 +33,7 @@
 
   <% diaries.each do |diary| %>
     <div>
-      <%= link_to diary.title, diary %>
+      <%= link_to diary.sentence, diary %>
     </div>
   <% end %>
 <% end %>

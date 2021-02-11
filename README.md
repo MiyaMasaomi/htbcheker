@@ -27,7 +27,7 @@
 | refresh    | integer  | null: false                  |
 | output     | integer  | null: false                  |
 | today_goal | integer  | null: false                  |
-| datetime   | integer  | null: false                  |
+| start_time | integer  | null: false                  |
 | user       |references|null: false, foreign_key: true|
 | status     |references| null: false, foreign_key: true |
 
