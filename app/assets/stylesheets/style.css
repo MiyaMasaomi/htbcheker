@@ -1,0 +1,90 @@
+/* ヘッダー部分 */
+.header {
+  background-color: #f1f8fe;
+  margin-bottom: 48px;
+  padding: 20px 0;
+}
+
+.header__bar {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.header-name {
+  display: inline-block;
+  margin: auto;
+  font-size: 40px;
+  color: black;
+  text-decoration: none;
+  user-select: none;
+  transition: 0.4s ease;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+}
+
+.user-nickname{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  user-select: none;
+  border: 1px black solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.user-nickname:hover{
+  color: #fff;
+  background: #87CEFA;
+}
+
+.nav__btn{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  user-select: none;
+  border: 1px black solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.nav__btn:hover{
+  color: #fff;
+  background: #87CEFA;
+}
+
+.nav__logout:hover{
+  opacity: 0.5;
+}
+
+.footer {
+  background-color: #f1f8fe;
+  margin-bottom: 48px;
+  padding: 20px 0;
+}
+
+.footer-name {
+  font-size: 15px;
+}
+
+/* ヘッダー部分終わり */
+
+/* ボディ部分 */
+
+.current-name {
+  font-size: 30px;
+  color: black;
+  margin: 20px;
+}

@@ -14,15 +14,15 @@ ActiveRecord::Schema.define(version: 2021_02_10_063648) do
 
   create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "sentence", default: "", null: false
-    t.string "sleep", null: false
-    t.string "meal", null: false
-    t.string "motion", null: false
-    t.string "study", null: false
-    t.string "output", null: false
-    t.string "today_goal", null: false
-    t.string "margin", null: false
-    t.string "tired", null: false
-    t.string "refresh", null: false
+    t.integer "sleep", null: false
+    t.integer "meal", null: false
+    t.integer "motion", null: false
+    t.integer "study", null: false
+    t.integer "output", null: false
+    t.integer "today_goal", null: false
+    t.integer "margin", null: false
+    t.integer "tired", null: false
+    t.integer "refresh", null: false
     t.datetime "start_time"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false

@@ -1,39 +1,57 @@
-<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+  <p id="notice"><%= notice %></p>
 
-<h1>自分の日記</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>時間</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @diaries.each do |diary| %>
-      <tr>
-        <td><%= diary.sentence %></td>
-        <td><%= diary.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= link_to 'Show', diary %></td>
-        <td><%= link_to 'Edit', edit_diary_path(diary.id) %></td>
-        <td><%= link_to 'Destroy',diary_path(diary.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to '日記をかく', new_diary_path %>
-
-<%= month_calendar events: @diaries do |date, diaries| %>
-  <%= date.day %>
-
-  <% diaries.each do |diary| %>
-    <div>
-      <%= link_to diary.sentence, diary %>
-    </div>
+  <div class="current-name">
+    <%= "#{current_user.nickname}さんの状態" %>
+  </div>
+  <% if @diaries.present? %>
+  <%= "体力：#{@sleep_average + @meal_average + @motion_average}点" %>
+  <%= "技術：#{@study_average + @output_average + @today_average}点" %>
+  <%= "精神：#{@margin_average + @tired_average + @refresh_average}点" %>
   <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>時間</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @diaries.each do |diary| %>
+        <tr>
+          <td><%= diary.sentence %></td>
+          <td><%= diary.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= link_to 'Show', diary %></td>
+          <td><%= link_to 'Edit', edit_diary_path(diary.id) %></td>
+          <td><%= link_to 'Destroy',diary_path(diary.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to '日記をかく', new_diary_path %>
+
+  <%= month_calendar events: @diaries do |date, diaries| %>
+    <%= date.day %>
+
+    <% diaries.each do |diary| %>
+      <div>
+        <%= link_to '日記を見る', diary %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+<h1>ハテボチェッカーとは？</h1>
+<p>ハテボチェッカーとは、日記を書き、９つの質問に答えるだけで自分の体力・技術・精神がどれくらいなのかを点数かすることができます</p>
+<p>ハテボチェッカーの利用方法は、簡単３ステップです！</p>
+<p>①会員登録する</p>
+<p>②日記を書く</p>
+<p>③トップページでトータルの状態を確認する！</p>
+<p>日記を見るボタンをクリックすれば日記の詳細（その日の状態）を見ることできます。また、日記は後で修正することもできますし、消すこともできます！</p>
+<p>さぁ！ハテボチェッカーを試してみよう！</p>
+<%= link_to '新規登録', new_user_registration_path, class: :nav__btn %>
 <% end %>

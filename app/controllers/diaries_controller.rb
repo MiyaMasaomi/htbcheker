@@ -2,6 +2,15 @@ class DiariesController < ApplicationController
 
   def index
     @diaries = Diary.all
+    @sleep_average = Diary.average(:sleep)
+    @meal_average = Diary.average(:meal)
+    @motion_average = Diary.average(:motion)
+    @study_average = Diary.average(:study)
+    @output_average = Diary.average(:output)
+    @today_average = Diary.average(:today_goal)
+    @margin_average = Diary.average(:margin)
+    @tired_average = Diary.average(:tired)
+    @refresh_average = Diary.average(:refresh)
   end
 
   def new
@@ -10,6 +19,10 @@ class DiariesController < ApplicationController
 
   def show
     @diary = Diary.find(params[:id])
+    @body = @diary.sleep.length + @diary.meal.length + @diary.motion.length
+    @technique = @diary.study.length + @diary.output.length + @diary.today_goal.length
+    @heart = @diary.margin.length + @diary.tired.length + @diary.refresh.length
+    @htb = @body + @technique + @heart
   end
 
   def create
