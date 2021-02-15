@@ -24,10 +24,10 @@
 | study      | integer  | null: false                  |
 | margin     | integer  | null: false                  |
 | tired      | integer  | null: false                  |
-| dream      | integer  | null: false                  |
+| refresh    | integer  | null: false                  |
 | output     | integer  | null: false                  |
 | today_goal | integer  | null: false                  |
-| datetime   | integer  | null: false                  |
+| start_time | integer  | null: false                  |
 | user       |references|null: false, foreign_key: true|
 | status     |references| null: false, foreign_key: true |
 
