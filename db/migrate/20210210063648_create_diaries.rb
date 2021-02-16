@@ -1,7 +1,7 @@
 class CreateDiaries < ActiveRecord::Migration[6.0]
   def change
     create_table :diaries do |t|
-      t.string :sentence,         null: false, default: ""
+      t.text :sentence,           null: false
       t.integer :sleep,           null: false
       t.integer :meal,            null: false
       t.integer :motion,          null: false

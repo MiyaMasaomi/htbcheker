@@ -2,38 +2,8 @@
   <p id="notice"><%= notice %></p>
 
   <div class="current-name">
-    <%= "#{current_user.nickname}さんの状態" %>
+    <%= "#{current_user.nickname}さんの日記" %>
   </div>
-  <% if @diaries.present? %>
-  <%= "体力：#{@sleep_average + @meal_average + @motion_average}点" %>
-  <%= "技術：#{@study_average + @output_average + @today_average}点" %>
-  <%= "精神：#{@margin_average + @tired_average + @refresh_average}点" %>
-  <% end %>
-  <table>
-    <thead>
-      <tr>
-        <th>タイトル</th>
-        <th>時間</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @diaries.each do |diary| %>
-        <tr>
-          <td><%= diary.sentence %></td>
-          <td><%= diary.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-          <td><%= link_to 'Show', diary %></td>
-          <td><%= link_to 'Edit', edit_diary_path(diary.id) %></td>
-          <td><%= link_to 'Destroy',diary_path(diary.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to '日記をかく', new_diary_path %>
 
   <%= month_calendar events: @diaries do |date, diaries| %>
     <%= date.day %>
@@ -44,14 +14,82 @@
       </div>
     <% end %>
   <% end %>
+
+  <div class="current-name">
+    <%= "#{current_user.nickname}さんの状態" %>
+  </div>
+  <% if @diaries.present? %>
+  <div class="htb-status">
+    <div class="htb-body">
+      <div class="body-status-name">
+        <p>精神</p>
+      </div>
+      <div class="body-status-average">
+        <img src="/assets/元気なハート.jpg" alt="精神" class="status-image">
+        <div class="status-number">
+          <%= @margin_average + @tired_average + @refresh_average %>
+        </div>
+      </div>
+    </div>
+    <div class="htb-body">
+      <div class="body-status-name">
+        <p>技術</p>
+      </div>
+      <div class="body-status-average">
+        <img src="/assets/技術.jpg" alt="技術" class="status-image">
+        <div class="status-number">
+          <%= @study_average + @output_average + @today_average %>
+        </div>
+      </div>
+    </div>
+    <div class="htb-body">
+      <div class="body-status-name">
+        <p>体力</p>
+      </div>
+      <div class="body-status-average">
+        <img src="/assets/走る人.jpg" alt="体力" class="status-image">
+        <div class="status-number">
+          <%= @sleep_average + @meal_average + @motion_average %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="body_btn">
+    <%= link_to '日記を書く', new_diary_path, class: :btn_body %>
+  </div>
+
+  <table>
+    <thead>
+      <tr class="diary-history">
+        <th>直近の日記</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @diaries.each do |diary| %>
+        <tr class="diary-history">
+          <td><%= diary.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= link_to '詳細', diary, class: :diary_history_btn %></td>
+          <td><%= link_to '編集', edit_diary_path(diary.id), class: :diary_history_btn %></td>
+          <td><%= link_to '削除',diary_path(diary.id), method: :delete, data: { confirm: 'Are you sure?' }, class: :diary_history_btn %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
 <% else %>
 <div>
-  <%= image_tag "人混み.jpg", class:"main-image" %>
+  <%= image_tag "人混み.jpg", class: "main-image" %>
 </div>
 <h1 class="htb-main">ハテボチェッカーとは？</h1>
 <div class="htb-sub">
 <p>近年、ストレス社会と呼ばれるくらい自分をコントロールすることが難しい世の中になりました。</p>
 <p>そこで、ハテボチェッカーを利用することで自分の体力・技術・精神がどれくらいなのかを点数し、自分の状態を客観的に見る事ができます！</p>
+<p>自分の状態を把握して、今日の目標やスケジュールを立てるのに役立ててください！</p>
 </div>
 <p class="htb-st3">ハテボチェッカーの利用方法は、簡単３ステップです！</p>
 <ul class="htb-step">
@@ -68,8 +106,13 @@
     <p class="step-name">③トップページで今の状態を確認する！</p>
   </li>
 </ul>
-<p class="htb-sub3">日記を見るボタンをクリックすれば日記の詳細（その日の状態）を見ることできます。また、日記は後で修正することもできますし、消すこともできます！</p>
+<div class="htb-sub2">
+<p>日記を見るボタンをクリックすれば日記の詳細（その日の状態）を見ることできます。</p>
+<p>また、日記は後で修正することもできますし、消すこともできます！</p>
+</div>
 
-<p class="htb-sub4">さぁ！ハテボチェッカーを試してみよう！</p>
-<%= link_to '新規登録', new_user_registration_path, class: :nav__btn %>
+<p class="htb-sub3">さぁ！ハテボチェッカーを試してみよう！</p>
+<div class="body_btn">
+  <%= link_to '新規登録', new_user_registration_path, class: :btn_body %>
+</div>
 <% end %>

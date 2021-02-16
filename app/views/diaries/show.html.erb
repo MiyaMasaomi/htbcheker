@@ -1,79 +1,89 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>総合</strong>
-  <%= "#{@htb}点" %>
-</p>
+  <div class="htb-status">
+    <div class="htb-body">
+      <div class="body-status-name">
+        <p>精神</p>
+      </div>
+      <div class="body-status-average">
+        <img src="/assets/元気なハート.jpg" alt="精神" class="status-image">
+        <div class="status-number">
+          <%= "#{@heart}点" %>
+        </div>
+      </div>
+    </div>
+    <div class="htb-body">
+      <div class="body-status-name">
+        <p>技術</p>
+      </div>
+      <div class="body-status-average">
+        <img src="/assets/技術.jpg" alt="技術" class="status-image">
+        <div class="status-number">
+          <%= "#{@technique}点" %>
+        </div>
+      </div>
+    </div>
+    <div class="htb-body">
+      <div class="body-status-name">
+        <p>体力</p>
+      </div>
+      <div class="body-status-average">
+        <img src="/assets/走る人.jpg" alt="体力" class="status-image">
+        <div class="status-number">
+          <%= "#{@body}点" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>体力</strong>
-  <%= "#{@body}点" %>
-</p>
+  <ul class="show-list">
+    <li class="show-number">
+      <p>日にち：</p>
+      <%= @diary.start_time.strftime("%Y-%m-%d %H:%M") %>
+    </li>
+    <li class="show-number">
+      <p>日記の内容：</p>
+      <%= @diary.sentence %>
+    </li>
+    <li class="show-number">
+      <p>睡眠：</p>
+      <%= @diary.sleep %>
+    </li>
+    <li class="show-number">
+      <p>食事：</p>
+      <%= @diary.meal %>
+    </li>
+    <li class="show-number">
+      <p>運動：</p>
+      <%= @diary.motion %>
+    </li>
+    <li class="show-number">
+      <p>勉強：</p>
+      <%= @diary.study %>
+    </li>
+    <li class="show-number">
+      <p>アウトプット：</p>
+      <%= @diary.output %>
+    </li>
+    <li class="show-number">
+      <p>今日・今週・今月の目標：</p>
+      <%= @diary.today_goal %>
+    </li>
+    <li class="show-number">
+      <p>心の余裕：</p>
+      <%= @diary.margin %>
+    </li>
+    <li class="show-number">
+      <p>疲労感：</p>
+      <%= @diary.tired %>
+    </li>
+    <li class="show-number">
+      <p>リフレッシュ：</p>
+      <%= @diary.refresh %>
+    </li>
+  </ul>
 
-<p>
-  <strong>技術</strong>
-  <%= "#{@technique}点" %>
-</p>
-
-<p>
-  <strong>精神</strong>
-  <%= "#{@heart}点" %>
-</p>
-
-<p>
-  <strong>日にち</strong>
-  <%= @diary.start_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
-
-<p>
-  <strong>日記の内容：</strong>
-  <%= @diary.sentence %>
-</p>
-
-<p>
-  <strong>睡眠：</strong>
-  <%= @diary.sleep %>
-</p>
-
-<p>
-  <strong>食事：</strong>
-  <%= @diary.meal %>
-</p>
-
-<p>
-  <strong>運動：</strong>
-  <%= @diary.motion %>
-</p>
-
-<p>
-  <strong>勉強：</strong>
-  <%= @diary.study %>
-</p>
-
-<p>
-  <strong>アウトプット：</strong>
-  <%= @diary.output %>
-</p>
-
-<p>
-  <strong>今日・今週・今月の目標：</strong>
-  <%= @diary.today_goal %>
-</p>
-
-<p>
-  <strong>心の余裕：</strong>
-  <%= @diary.margin %>
-</p>
-
-<p>
-  <strong>疲労感：</strong>
-  <%= @diary.tired %>
-</p>
-
-<p>
-  <strong>リフレッシュ：</strong>
-  <%= @diary.refresh %>
-</p>
-
-<%= link_to 'Edit', edit_diary_path(@diary) %> |
-<%= link_to 'Back', diaries_path %>
+  <div class="submit">
+    <%= link_to '編集する', edit_diary_path(@diary), class: :btn_new %>
+    <%=link_to 'もどる', root_path, class: :btn_new %>
+  </div>
