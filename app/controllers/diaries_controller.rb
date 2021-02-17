@@ -1,7 +1,7 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_diary, only: [:show, :destroy, :edit, :update]
-  before_action :different_diary, only: [:edit, :update, :destroy]
+  before_action :set_diary, only: %i[show destroy edit update]
+  before_action :different_diary, only: %i[edit update destroy]
 
   def index
     if user_signed_in?
@@ -40,16 +40,15 @@ class DiariesController < ApplicationController
   def destroy
     if @diary.user_id == current_user.id
       @diary.destroy
-      redirect_to root_path, notice:"削除しました"
+      redirect_to root_path, notice: '削除しました'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @diary.update(diary_params)
-      redirect_to diaries_path, notice: "編集しました"
+      redirect_to diaries_path, notice: '編集しました'
     else
       render :edit
     end
@@ -58,7 +57,8 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:sentence, :sleep, :meal, :motion, :study, :output, :today_goal, :margin, :tired, :refresh, :start_time).merge(user_id: current_user.id)
+    params.require(:diary).permit(:sentence, :sleep, :meal, :motion, :study, :output, :today_goal, :margin, :tired,
+                                  :refresh, :start_time).merge(user_id: current_user.id)
   end
 
   def set_diary
