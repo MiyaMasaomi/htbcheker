@@ -1,5 +1,8 @@
 <%= form_with model: @diary, local: true do |form| %>
 
+<%= render 'layouts/error_messages', model: form.object %>
+
+
   <div class="time">
     <%= form.label :start_time %>
     <%= form.datetime_select :start_time %>

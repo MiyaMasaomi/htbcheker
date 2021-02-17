@@ -1,0 +1,16 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     diary:
+       sentence: 日記
+       sleep: 睡眠
+       meal: 食事
+       motion: 運動
+       study: 勉強
+       output: アウトプット
+       today_goal: 目標
+       margin: 心の余裕
+       tired: 疲労感
+       refresh: リフレッシュ

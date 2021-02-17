@@ -361,3 +361,12 @@ textarea {
 }
 
 /* 日記詳細終わり */
+
+/* エラーメッセージ始まり */
+
+.login-flash-message {
+  margin: 20px;
+  text-align: center;
+}
+
+/* エラーメッセージ終わり */
