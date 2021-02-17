@@ -254,6 +254,7 @@
 
   <div class="submit">
     <%= form.submit "日記を保存する" ,class: :btn_new %>
+    <%= link_to '削除', diary_path(@diary), method: :delete, data: { confirm: '本当に削除しますか？' }, class: :btn_new %>
     <%=link_to 'もどる', root_path, class: :btn_new %>
   </div>
 
