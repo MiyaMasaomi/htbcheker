@@ -74,7 +74,7 @@
           <td><%= diary.start_time.strftime("%Y-%m-%d %H:%M") %></td>
           <td><%= link_to '詳細', diary, class: :diary_history_btn %></td>
           <td><%= link_to '編集', edit_diary_path(diary.id), class: :diary_history_btn %></td>
-          <td><%= link_to '削除',diary_path(diary.id), method: :delete, data: { confirm: 'Are you sure?' }, class: :diary_history_btn %></td>
+          <td><%= link_to '削除', diary_path(diary.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: :diary_history_btn %></td>
         </tr>
       <% end %>
     </tbody>
