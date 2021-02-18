@@ -63,15 +63,15 @@
   <table>
     <thead>
       <tr class="diary-history">
-        <th>直近の日記</th>
+        <th>直近書いた日記</th>
         <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @diaries.first(7).each do |diary| %>
+      <% @diaries.last(7).each do |diary| %>
         <tr class="diary-history">
-          <td><%= diary.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= diary.start_time.strftime("%Y年%m月%d日") %></td>
           <td><%= link_to '詳細', diary, class: :diary_history_btn %></td>
           <td><%= link_to '編集', edit_diary_path(diary.id), class: :diary_history_btn %></td>
           <td><%= link_to '削除', diary_path(diary.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: :diary_history_btn %></td>
