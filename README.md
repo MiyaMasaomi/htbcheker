@@ -81,6 +81,11 @@ https://i.gyazo.com/2fc71b234fa3c8066fe668b6065f7345.gif
 https://i.gyazo.com/7aa1524efdf425d9838260254457cded.gif
 
 
+##実装予定の機能
+
+日記の文章から点数化ができる機能を追加したいが、知識不足のため現状は保留。
+知識が増えたら実装する予定。
+
 ## データベース設計
 https://i.gyazo.com/584404b845733075aa9a786857d30ba7.png
 
