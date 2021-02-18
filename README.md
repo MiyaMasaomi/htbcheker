@@ -74,9 +74,25 @@ https://github.com/MiyaMasaomi/htbcheker.git
 
 ## 実装した機能についてのGIFと説明
 
+トップページから日記を書くまでのGIF
+https://i.gyazo.com/2fc71b234fa3c8066fe668b6065f7345.gif
+
+日記投稿から詳細ページまでのGIF
+https://i.gyazo.com/7aa1524efdf425d9838260254457cded.gif
+
+
 ## データベース設計
-![ER図]()
+https://i.gyazo.com/584404b845733075aa9a786857d30ba7.png
 
 ## ローカルでの動作方法
 
+ruby 2.6.5
+rails 6.0.3.4
 
+git clone https://github.com/MiyaMasaomi/htbcheker.git
+
+bundle install
+
+rails db:migrate
+
+rails s
