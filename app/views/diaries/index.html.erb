@@ -69,7 +69,7 @@
     </thead>
 
     <tbody>
-      <% @diaries.each do |diary| %>
+      <% @diaries.first(7).each do |diary| %>
         <tr class="diary-history">
           <td><%= diary.start_time.strftime("%Y-%m-%d %H:%M") %></td>
           <td><%= link_to '詳細', diary, class: :diary_history_btn %></td>
