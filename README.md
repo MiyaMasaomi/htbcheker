@@ -36,27 +36,47 @@
 - belongs_to :user
 - has_one :status
 
-## statuses テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| heart     | integer    | null: false                    |
-| technique | integer    | null: false                    |
-| body      | integer    | null: false                    |
+# htbcheker概要
 
-### Association
+## アプリケーション名
+htbcheker（ハテボチェッカー）
 
-- belongs_to :user
-- belongs_to :diary
+## アプリケーション概要
+会員登録することで、日記を書くことができ、その日の自分の状態を点数にして可視化する事ができます。
+また、日々日記を書いていくことで平均的に自分はどれくらいの点数なのかも自分のトップページから確認する事ができます。
 
+URL：https://htbcheker.herokuapp.com/
 
+## BASIC認証
+ユーザー名：masaomi
+パスワード：1111
 
-### htbcheker概要
+## テスト用アカウント
+メールアドレス：test1@sample.com
+パスワード：aaaaaa
 
-アプリケーション名：htbcheker（ハテボチェッカー）
+## 利用方法
+日記を投稿する事ができます。
+その後、投稿した日記の情報を元に精神・技術・体力を点数化したものがトップページに表示されます。
+個々の情報を見たい場合は、カレンダーの中かブラウザ下の最近書いた日記の中から選んで見る事ができます。
 
-アプリケーション概要：会員登録することで、日記を書くことができ、その日の自分の状態を点数にして可視化する事ができます。
-                  また、日々日記を書いていくことで平均的に自分はどれくらいの点数なのかも自分のトップページから確認する事ができます。
+## 目指した課題解決
+近年、ストレス社会と呼ばれるくらい自分をコントロールすることが難しい世の中になりました。
+そこで、ハテボチェッカーを利用することで自分の体力・技術・精神がどれくらいなのかを点数し、自分の状態を客観的に見る事ができます。
+自分の状態を把握して、今日の目標やスケジュールを立てるのにお役立てください。
 
-URL：
+## 洗い出した要件
+https://docs.google.com/spreadsheets/d/1_y6e1EzTwy9NTcgHYfik38jlXspOlDjf30KWWxjwxak/edit?usp=sharing
+
+## GitHubのリポジトリURL
+https://github.com/MiyaMasaomi/htbcheker.git
+
+## 実装した機能についてのGIFと説明
+
+## データベース設計
+![ER図]()
+
+## ローカルでの動作方法
+
 
