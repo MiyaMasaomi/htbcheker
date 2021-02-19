@@ -23,9 +23,18 @@ class DiariesController < ApplicationController
   end
 
   def show
-    @body = @diary.sleep.length + @diary.meal.length + @diary.motion.length
-    @technique = @diary.study.length + @diary.output.length + @diary.today_goal.length
-    @heart = @diary.margin.length + @diary.tired.length + @diary.refresh.length
+    @sleep = @diary.sleep_before_type_cast
+    @meal = @diary.meal_before_type_cast
+    @motion = @diary.motion_before_type_cast
+    @study = @diary.study_before_type_cast
+    @output = @diary.output_before_type_cast
+    @today_goal = @diary.today_goal_before_type_cast
+    @margin = @diary.margin_before_type_cast
+    @tired = @diary.tired_before_type_cast
+    @refresh = @diary.refresh_before_type_cast
+    @body = @sleep + @meal + @motion
+    @technique = @study + @output + @today_goal
+    @heart = @margin + @tired + @refresh
   end
 
   def create
