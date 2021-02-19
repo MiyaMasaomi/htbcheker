@@ -35,6 +35,12 @@ class DiariesController < ApplicationController
     @body = @sleep + @meal + @motion
     @technique = @study + @output + @today_goal
     @heart = @margin + @tired + @refresh
+    @lot_motion = Diary.includes(:sentence["動か"]) ? @body + 5 : @body + 0
+    @total_body = Diary.includes(:sentence["発散"]) ? @lot_motion + 5 : @lot_motion + 0
+    @pleasant = Diary.includes(:sentence["楽し"]) ? @heart + 5 : @heart + 0
+    @total_heart = Diary.includes(:sentence["遊んだ"]) ? @pleasant + 5 : @pleasant + 0
+    @lot_study = Diary.includes(:sentence["勉強した"]) ? @technique + 5 : @technique + 0
+    @total_technique = Diary.includes(:sentence["学んだ"]) ? @lot_study + 5 : @lot_study + 0
   end
 
   def create
