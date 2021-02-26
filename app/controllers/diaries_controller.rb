@@ -6,15 +6,15 @@ class DiariesController < ApplicationController
   def index
     if user_signed_in?
       @diaries = Diary.where(user_id: current_user.id)
-      @sleep_average = @diaries.average(:sleep)
-      @meal_average = @diaries.average(:meal)
-      @motion_average = @diaries.average(:motion)
-      @study_average = @diaries.average(:study)
-      @output_average = @diaries.average(:output)
-      @today_average = @diaries.average(:today_goal)
-      @margin_average = @diaries.average(:margin)
-      @tired_average = @diaries.average(:tired)
-      @refresh_average = @diaries.average(:refresh)
+      @sleep_ave = @diaries.average(:sleep)
+      @meal_ave = @diaries.average(:meal)
+      @motion_ave = @diaries.average(:motion)
+      @study_ave = @diaries.average(:study)
+      @output_ave = @diaries.average(:output)
+      @today_ave = @diaries.average(:today_goal)
+      @margin_ave = @diaries.average(:margin)
+      @tired_ave = @diaries.average(:tired)
+      @refresh_ave = @diaries.average(:refresh)
     end
   end
 
@@ -35,6 +35,12 @@ class DiariesController < ApplicationController
     @body = @sleep + @meal + @motion
     @technique = @study + @output + @today_goal
     @heart = @margin + @tired + @refresh
+    @lot_motion = Diary.includes(:sentence["動か"]) ? @body + 5 : @body + 0
+    @total_body = Diary.includes(:sentence["発散"]) ? @lot_motion + 5 : @lot_motion + 0
+    @pleasant = Diary.includes(:sentence["楽し"]) ? @heart + 5 : @heart + 0
+    @total_heart = Diary.includes(:sentence["遊んだ"]) ? @pleasant + 5 : @pleasant + 0
+    @lot_study = Diary.includes(:sentence["勉強した"]) ? @technique + 5 : @technique + 0
+    @total_technique = Diary.includes(:sentence["学んだ"]) ? @lot_study + 5 : @lot_study + 0
   end
 
   def create
