@@ -19,41 +19,61 @@
     <%= "#{current_user.nickname}さんの状態" %>
   </div>
   <% if @diaries.present? %>
-  <div class="htb-status">
-    <div class="htb-body">
-      <div class="body-status-name">
-        <p>精神</p>
+    <div class="htb-status">
+      <div class="htb-body">
+        <div class="body-status-name">
+          <p>精神</p>
+        </div>
+        <div class="body-status-average">
+          <img src="/assets/元気なハート.jpg" alt="精神" class="status-image">
+          <div class="status-number">
+            <%= "#{@heart_ave}点" %>
+          </div>
+        </div>
       </div>
-      <div class="body-status-average">
-        <img src="/assets/元気なハート.jpg" alt="精神" class="status-image">
-        <div class="status-number">
-          <%= "#{(@margin_ave + @tired_ave + @refresh_ave).ceil}点" %>
+      <div class="htb-body">
+        <div class="body-status-name">
+          <p>技術</p>
+        </div>
+        <div class="body-status-average">
+          <img src="/assets/技術.jpg" alt="技術" class="status-image">
+          <div class="status-number">
+            <%= "#{@technique_ave}点" %>
+          </div>
+        </div>
+      </div>
+      <div class="htb-body">
+        <div class="body-status-name">
+          <p>体力</p>
+        </div>
+        <div class="body-status-average">
+          <img src="/assets/走る人.jpg" alt="体力" class="status-image">
+          <div class="status-number">
+            <%= "#{@body_ave}点" %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="htb-body">
-      <div class="body-status-name">
-        <p>技術</p>
-      </div>
-      <div class="body-status-average">
-        <img src="/assets/技術.jpg" alt="技術" class="status-image">
-        <div class="status-number">
-          <%= "#{(@study_ave + @output_ave + @today_ave).ceil}点" %>
-        </div>
-      </div>
+    <div class="current-name">
+      <%= "#{current_user.nickname}さんにオススメの動画" %>
     </div>
-    <div class="htb-body">
-      <div class="body-status-name">
-        <p>体力</p>
-      </div>
-      <div class="body-status-average">
-        <img src="/assets/走る人.jpg" alt="体力" class="status-image">
-        <div class="status-number">
-          <%= "#{(@sleep_ave + @meal_ave + @motion_ave).ceil}点" %>
-        </div>
-      </div>
+    <div class="htb-video">
+      <% if @heart_ave >= @technique_ave && @heart_ave >= @body_ave %>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/ABpORnclGqc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/LQLjk850-e4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/qsQgqNpuhks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <% elsif @technique_ave >= @heart_ave && @technique_ave >= @body_ave %>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/qWiHBJaQbEw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/KoukFuP7eO0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/bi_WFrOYhgg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <% elsif @body_ave >= @technique_ave && @body_ave >= @heart_ave %>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/1nmW7eILIDA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/cQsupVhKcDg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/hge3fr50o0o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <% else %>
+        <p>現在、オススメできる動画がありません</p>
+      <% end %>
     </div>
-  </div>
   <% end %>
 
   <div class="body_btn">

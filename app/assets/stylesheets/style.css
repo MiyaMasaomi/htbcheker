@@ -214,6 +214,14 @@
   margin: auto;
 }
 
+.htb-video {
+  border-style: groove;
+  border-collapse:collapse;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
 .diary-history {
   font-size: 20px;
   display: flex;
