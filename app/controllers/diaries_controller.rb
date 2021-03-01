@@ -15,6 +15,9 @@ class DiariesController < ApplicationController
       @margin_ave = @diaries.average(:margin)
       @tired_ave = @diaries.average(:tired)
       @refresh_ave = @diaries.average(:refresh)
+      @heart_ave = (@margin_ave + @tired_ave + @refresh_ave).ceil
+      @technique_ave = (@study_ave + @output_ave + @today_ave).ceil
+      @body_ave = (@sleep_ave + @meal_ave + @motion_ave).ceil
     end
   end
 
