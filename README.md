@@ -75,11 +75,11 @@ https://github.com/MiyaMasaomi/htbcheker.git
 
 ## 実装した機能についてのGIFと説明
 
-トップページから日記を書くまでのGIF
-https://i.gyazo.com/2fc71b234fa3c8066fe668b6065f7345.gif
+トップページから日記を書くまでのGIF  
+https://i.gyazo.com/5d3cc8a6a7f54c42f451317c26a2ff8a.gif  
 
-日記投稿から詳細ページまでのGIF
-https://i.gyazo.com/7aa1524efdf425d9838260254457cded.gif
+日記投稿から詳細ページまでのGIF  
+https://i.gyazo.com/58ccae45d9b5e21906a7fdd05fbb1ded.gif  
 
 
 ## 実装予定の機能
