@@ -3,14 +3,19 @@ services:
   db:
     image: mysql:5.7
     environment:
-      - MYSQL_ROOT_PASSWORD=password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    ports:
+      - '3306:3306'
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    
+
+  web:
     environment:
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-default}
       BASIC_AUTH_PASSWORD: ${BASIC_AUTH_PASSWORD-default}
-    volumes:
-      - ./tmp/db:/var/lib/mysql/data
-
-  web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -19,3 +24,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    stdin_open: true
+    tty: true
+volumes:
+  mysql-data:
+    driver: local
