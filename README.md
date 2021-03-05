@@ -48,6 +48,7 @@ htbcheker（ハテボチェッカー）
 
 URL：https://htbcheker.herokuapp.com/  
 ※現在は、herokuにてサイトをあげております。
+※本来、チェッカーなので、checkerの記述が正しいですが変更をしておりません。時間がある時に変更しますのでご了承ください。
 
 ## BASIC認証
 ユーザー名：masaomi  
