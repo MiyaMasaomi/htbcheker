@@ -47,6 +47,7 @@ htbcheker（ハテボチェッカー）
 また、日々日記を書いていくことで平均的に自分はどれくらいの点数なのかも自分のトップページから確認する事ができます。  
 
 URL：https://htbcheker.herokuapp.com/  
+※現在は、herokuにてサイトをあげております。
 
 ## BASIC認証
 ユーザー名：masaomi  
@@ -86,7 +87,8 @@ https://i.gyazo.com/58ccae45d9b5e21906a7fdd05fbb1ded.gif
 
 日記の文章から点数化ができる機能を追加したいが、知識不足のため現状は保留。  
 知識が増えたら実装する予定。  
-Dockerを導入中、最終的にはAWS、CI/CDを含める予定
+Dockerを導入中→（環境構築済み）  
+AWS、CI/CDを含める予定  
 
 ## データベース設計
 https://i.gyazo.com/584404b845733075aa9a786857d30ba7.png
